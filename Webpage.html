@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NLP Toolset</title>
+<style>
+    *{
+        font-family: 'Poppins';
+        
+    }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        
+    }
+
+
+    .entrance{
+        display: flex;
+        background: url('https://img.freepik.com/free-vector/gradient-neon-light-background_23-2149332915.jpg?t=st=1709577627~exp=1709581227~hmac=9e0fae82dc4ab6bae3109e909c1511082fa54f664c7e6178005aae6278211c18&w=826');
+        background-size: cover;
+        background-color: aquamarine;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .tool-container {
+        width: 80%;
+        margin: 20px auto;
+        
+    }
+
+    .input-section {
+        margin-bottom: 20px;
+    }
+
+    .input-section textarea {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    .output-section {
+        display: none;
+    }
+
+    .output-section h2 {
+        margin-top: 20px;
+    }
+
+    .output-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .output-section ul li {
+        margin-bottom: 5px;
+    }
+
+    .h1entr{
+        font-size: 64px;
+        color: white;
+    }
+
+    .entrance p {
+    width: 80%; /* Adjust the width as needed */
+    white-space: nowrap;
+    font-size: 20px; /* This will add an ellipsis (...) at the end of the text if it overflows */
+    text-align: center;
+    color: white;
+}
+
+.entrance button {
+    background-color: rgb(194, 10, 235);
+    background: radial-gradient(at top left, rgb(238, 71, 238), rgb(12, 12, 238));
+    font-family: "Fraunces", serif;
+    font-weight: bold;
+    border: none;
+    padding: 15px;
+    font-size: 1em;
+    border-radius: 10px;
+    transition: all 0.5s;
+    color: white;
+    font-family: 'Poppins';
+}
+button{
+    display: block;
+    margin: 0 auto;
+    background-color: rgb(194, 10, 235);
+    background: radial-gradient(at top left, rgb(238, 71, 238), rgb(12, 12, 238));
+    font-family: "Fraunces", serif;
+    font-weight: bold;
+    border: none;
+    padding: 15px;
+    font-size: 1em;
+    border-radius: 10px;
+    transition: all 0.5s;
+    color: white;
+    font-family: 'Poppins';
+}
+.entrance button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+h2{
+    text-align: center;
+}
+
+button{
+    align-items: center;
+}
+
+.document-inputs{
+    padding: 20px;
+    margin: 20px;
+}
+
+.temp {
+    display: block;
+    margin: 0 auto;
+    margin: 40px;
+}
+
+.entbut{
+    display: block;
+    margin: 0 auto;
+    background-color: rgb(194, 10, 235);
+    background: radial-gradient(at top left, rgb(238, 71, 238), rgb(12, 12, 238));
+    font-family: "Fraunces", serif;
+    font-weight: bold;
+    border: none;
+    padding: 15px;
+    font-size: 1em;
+    border-radius: 10px;
+    transition: all 0.5s;
+    color: white;
+    font-family: 'Poppins';
+}
+
+footer{
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+   /*  border: 2px #2f363e; */
+    
+}
+
+.footercontainer{
+    display: flex;
+    flex-direction: column;
+    /* align-items: calc(50%); */
+    justify-content: center;
+    /* border-radius: 20px; */
+    background: radial-gradient(at top left, rgb(3, 252, 231), rgb(12, 12, 238));
+    margin: 20px;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.6);
+    align-items: center;
+   
+    /* border: 2px #2f363e; */
+    
+    
+
+    
+}
+
+.footerlogo{
+    width: 54%;
+    
+    /* margin: 20px; */
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.footerlogo .img2{
+    align-items: center;
+    /* margin-left: calc(25%); */
+}
+.orgs{
+    width: 46%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 2rem;
+    background-color: white;
+    margin: 2rem;
+    padding: 1.5px;
+
+
+}
+
+.copyright{
+    color: white;
+    font-size: 20px;
+    background-color: blue;
+    padding: 10px;
+    font-weight: bolder;
+    border-radius: 2.5px;
+
+
+}
+
+
+
+
+
+
+.orgs img{
+
+    height: 250px;
+    width: fit-content;
+    margin: 20px;
+    padding: 2rem;
+    box-shadow: 0 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.422);
+    
+}
+
+.orgs img:hover{
+    transform: scale(1.1);
+    transition: all 0.3s;
+}
+
+.footercontent h2{
+   text-align: center;
+   font-size: 30px;
+   color: white;
+   font-weight: bolder;
+   margin-top: 2rem;
+}
+
+.footercontent p{
+    font-size: 20px;
+    color: white;
+    font-weight: medium;
+    text-align: center;
+    /* margin-top: 2rem; */
+}
+
+.devname{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.devname h2{
+    color: white;
+    font-size: 32px;
+    font-weight: medium;
+    margin-top: 2rem;
+
+}
+
+.devname p{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+#tokenize-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#stopword-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+#pos-tags-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#stem-lem-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#collocation-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#ir-results{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+
+
+
+</style>
+</head>
+<body>
+<div class="entrance">
+    <h1 class="h1entr">Welcome to the world of NLP</h1>
+    <p>Unlock the potential of NLP with our advanced LL1 parser in our comprehensive toolkit.</p>
+
+    <button onclick="scrollToInput()" class="entbut">Let's Explore</button>
+</div>
+
+
+<div class="tool-container">
+    <!-- Tokenizer -->
+    <div class="input-section">
+        <h2>Tokenizer</h2>
+        <textarea id="tokenize-input" placeholder="Enter a sentence"></textarea>
+        <button onclick="tokenizeText()">Tokenize</button>
+    </div>
+
+    <div id="tokenize-output" class="output-section">
+        <h2>Tokenized Words:</h2>
+        <ul id="tokenize-list"></ul>
+    </div>
+
+    <!-- Stopword Identifier -->
+    <div class="input-section">
+        <h2>Stopword Identifier</h2>
+        <textarea id="stopword-input" placeholder="Enter a sentence"></textarea>
+        <button onclick="identifyStopwords()">Identify Stopwords</button>
+    </div>
+
+    <div id="stopword-output" class="output-section">
+        <h2>Stopwords Found:</h2>
+        <ul id="stopword-list"></ul>
+    </div>
+
+    <!-- POS Tagger -->
+    <div class="input-section">
+        <h2>POS Tagger</h2>
+        <textarea id="pos-input" placeholder="Enter a sentence"></textarea>
+        <button onclick="tagTokens()">Tag POS</button>
+    </div>
+
+    <div id="pos-output" class="output-section">
+        <h2>POS Tags:</h2>
+        <ul id="pos-tags-list"></ul>
+    </div>
+
+    <!-- Stemmer and Lemmatizer -->
+    <div class="input-section">
+        <h2>Stemmer and Lemmatizer</h2>
+        <textarea id="stem-lem-input" placeholder="Enter a sentence"></textarea>
+        <button onclick="processStemAndLem()">Process</button>
+    </div>
+
+    <div id="stem-lem-output" class="output-section">
+        <h2>Stemmed and Lemmatized Words:</h2>
+        <ul id="stem-lem-list"></ul>
+    </div>
+
+    <!-- Collocation Detector -->
+    <div class="input-section">
+        <h2>Collocation Detector</h2>
+        <textarea id="collocation-input" placeholder="Enter a sentence"></textarea>
+        <button onclick="detectCollocations()">Detect Collocations</button>
+    </div>
+
+    <div id="collocation-output" class="output-section">
+        <h2>Collocations:</h2>
+        <ul id="collocation-list"></ul>
+    </div>
+
+</div>
+
+<div class="tool-container">
+    <!-- Information Retrieval -->
+    <div class="input-section">
+        <h2>Information Retrieval</h2>
+        <label for="num-documents">Number of Documents:</label>
+        <input type="number" id="num-documents">
+        <div id="document-inputs"></div>
+        <button onclick="addDocumentInputs()" class="temp">Add Documents</button>
+        <textarea id="query-input" placeholder="Enter your search query"></textarea>
+        <button onclick="searchDocuments()">Search</button>
+    </div>
+
+    <div id="ir-output" class="output-section">
+        <h2>Search Results:</h2>
+        <ul id="ir-results"></ul>
+    </div>
+</div>
+<footer>
+    <div class="footercontainer">
+        <div class="footerlogo">
+            
+           
+            <div class="footercontent">
+                <h2>RV College Of Engineering®</h2>
+                <p>RV Vidyanikethan Post, Mysuru Road, Bengaluru-560059</p>
+            </div>
+            
+            <div class="devname">
+                <h2>Developed By</h2>
+                <p>S DHANUSH (1RV21CS131)</p>
+                <p>S MOHAMMED ASHIQ (1RV21CS132)</p>
+                <p>TANMAY S LAL (1RV21CS176)</p>
+                <p>VINAY D (1RV21CS188)</p>
+            </div>
+        </div>
+        
+       
+    </div>
+</footer>
+
+
+<script>
+    // Function to scroll to the input box
+// Function to scroll to the Lemmatization input box
+function scrollToInput() {
+    var tokenInput = document.getElementById("tokenize-input");
+    tokenInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+
+
+
+    // Tokenizer
+    function tokenizeText() {
+        var text = document.getElementById("tokenize-input").value;
+        var words = text.toLowerCase().split(/\W+/);
+        
+        // Display tokenized words
+        var tokenizeList = document.getElementById("tokenize-list");
+        tokenizeList.innerHTML = "";
+        words.forEach(word => {
+            var listItem = document.createElement("li");
+            listItem.textContent = word;
+            tokenizeList.appendChild(listItem);
+        });
+
+        // Show the section containing tokenized words
+        var tokenizeOutput = document.getElementById("tokenize-output");
+        tokenizeOutput.style.display = "block";
+    }
+
+    // Stopword Identifier
+    function identifyStopwords() {
+        var text = document.getElementById("stopword-input").value.toLowerCase();
+        var stopwords = ["the", "is", "are", "and", "in", "on", "at", "for", "to", "of"];
+        var words = text.split(/\W+/);
+        var stopwordsFound = [];
+
+        words.forEach(word => {
+            if (stopwords.includes(word)) {
+                stopwordsFound.push(word);
+            }
+        });
+
+        // Display stopwords
+        var stopwordList = document.getElementById("stopword-list");
+        stopwordList.innerHTML = "";
+        stopwordsFound.forEach(stopword => {
+            var listItem = document.createElement("li");
+            listItem.textContent = stopword;
+            stopwordList.appendChild(listItem);
+        });
+
+        // Show the section containing stopwords
+        var stopwordOutput = document.getElementById("stopword-output");
+        stopwordOutput.style.display = "block";
+    }
+
+    // POS Tagger
+    function tagTokens() {
+        var text = document.getElementById("pos-input").value;
+        var tokens = text.toLowerCase().split(/\W+/);
+        var posTags = tagWithPOSTagger(tokens);
+
+        // Display POS tags
+        var posTagsList = document.getElementById("pos-tags-list");
+        posTagsList.innerHTML = "";
+        posTags.forEach(pos => {
+            var listItem = document.createElement("li");
+            listItem.textContent = pos[0] + ": " + pos[1];
+            posTagsList.appendChild(listItem);
+        });
+
+        // Show the section containing POS tags
+        var posOutput = document.getElementById("pos-output");
+        posOutput.style.display = "block";
+    }
+
+    function tagWithPOSTagger(tokens) {
+        var posTags = [];
+        tokens.forEach(token => {
+            var posTag = getPOSTag(token);
+            posTags.push([token, posTag]);
+        });
+        return posTags;
+    }
+
+    function getPOSTag(token) {
+        // LL(1) parsing rules for POS tagging
+        if (["the", "a", "an"].includes(token)) {
+            return "Determiner";
+        } else if (["cat","india" ,"dog", "bird", "elephant", "rabbit", "ashiq","country"].includes(token)) {
+            return "Noun";
+        } else if (["runs", "jumps", "flies", "swims", "walks", "writes", "reads", "dance", "table"].includes(token)) {
+            return "Verb";
+        } else if (["quick", "lazy", "happy", "sad", "tall", "short","big","good"].includes(token)) {
+            return "Adjective";
+        } else if (["over", "on", "in", "under", "above", "below", "one", "the","is","a"].includes(token)) {
+            return "Preposition";
+        } else {
+            return "Unknown";
+        }
+    }
+
+    // Stemmer and Lemmatizer
+    function processStemAndLem() {
+        var text = document.getElementById("stem-lem-input").value;
+        var words = text.toLowerCase().split(/\W+/);
+        var stemLemList = [];
+
+        words.forEach(word => {
+            var stemmed = stemWord(word);
+            var lemmatized = lemmatizeWord(word);
+            stemLemList.push([word, stemmed, lemmatized]);
+        });
+
+        // Display stemmed and lemmatized words
+        var stemLemOutput = document.getElementById("stem-lem-output");
+        stemLemOutput.style.display = "block";
+        var stemLemListElem = document.getElementById("stem-lem-list");
+        stemLemListElem.innerHTML = "";
+        stemLemList.forEach(entry => {
+            var listItem = document.createElement("li");
+            listItem.textContent = `${entry[0]} -> Stemmed: ${entry[1]}, Lemmatized: ${entry[2]}`;
+            stemLemListElem.appendChild(listItem);
+        });
+    }
+
+    function stemWord(word) {
+        // Simple stemming algorithm (e.g., remove 'ing' and 'ed' suffixes)
+        if (word.endsWith('ing')) {
+            return word.slice(0, -3);
+        } else if (word.endsWith('ed')) {
+            return word.slice(0, -2);
+        } else {
+            return word;
+        }
+    }
+
+    function lemmatizeWord(word) {
+        // Simple lemmatization algorithm (return the word as is)
+        return word;
+    }
+
+    // Collocation Detector
+    function detectCollocations() {
+        var text = document.getElementById("collocation-input").value;
+        var words = text.toLowerCase().split(/\W+/);
+        var collocations = {};
+
+        for (var i = 0; i < words.length - 1; i++) {
+            var collocation = words[i] + " " + words[i + 1];
+            if (collocations[collocation]) {
+                collocations[collocation]++;
+            } else {
+                collocations[collocation] = 1;
+            }
+        }
+
+        // Display collocations
+        var collocationList = document.getElementById("collocation-list");
+        collocationList.innerHTML = "";
+        for (var collocation in collocations) {
+            var listItem = document.createElement("li");
+            listItem.textContent = collocation + ": " + collocations[collocation];
+            collocationList.appendChild(listItem);
+        }
+
+        // Show the section containing collocations
+        var collocationOutput = document.getElementById("collocation-output");
+        collocationOutput.style.display = "block";
+    }
+
+    // Information Retrieval
+    function addDocumentInputs() {
+        var numDocuments = parseInt(document.getElementById("num-documents").value);
+        var documentInputs = document.getElementById("document-inputs");
+        documentInputs.innerHTML = "";
+        for (var i = 0; i < numDocuments; i++) {
+            var input = document.createElement("textarea");
+            input.setAttribute("placeholder", "Enter document " + (i + 1));
+            documentInputs.appendChild(input);
+        }
+    }
+
+    function searchDocuments() {
+        var documents = [];
+        var documentInputs = document.getElementById("document-inputs").querySelectorAll("textarea");
+        documentInputs.forEach(input => {
+            documents.push(input.value);
+        });
+        var query = document.getElementById("query-input").value;
+        
+        // Information Retrieval
+        var results = retrieveDocuments(documents, query);
+
+        // Display search results
+        var irResults = document.getElementById("ir-results");
+        irResults.innerHTML = "";
+        if (results.length > 0) {
+            results.forEach(result => {
+                var listItem = document.createElement("li");
+                listItem.textContent = "Document " + result;
+                irResults.appendChild(listItem);
+            });
+        } else {
+            var listItem = document.createElement("li");
+            listItem.textContent = "No matching documents found.";
+            irResults.appendChild(listItem);
+        }
+
+        // Show the section containing search results
+        var irOutput = document.getElementById("ir-output");
+        irOutput.style.display = "block";
+    }
+
+    function retrieveDocuments(documents, query) {
+        var results = [];
+        for (var docId = 0; docId < documents.length; docId++) {
+            if (documents[docId].toLowerCase().includes(query.toLowerCase())) {
+                results.push(docId + 1);
+            }
+        }
+        return results;
+    }
+</script>
+
+</body>
+</html>
