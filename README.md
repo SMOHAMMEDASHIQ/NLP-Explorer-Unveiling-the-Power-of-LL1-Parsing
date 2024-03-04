@@ -25,4 +25,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Credits
 
-NLP Explorer was developed by [Your Name].
+NLP Explorer was developed by [S MOHAMMED ASHIQ , S DHANUSH , TANMAY S LAL , VINAY D
+].
+
+
